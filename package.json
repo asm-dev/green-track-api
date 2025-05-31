@@ -1,0 +1,31 @@
+{
+  "name": "green-track-api",
+  "version": "1.0.0",
+  "description": "POC de una API para el registro de actividades sostenibles y su impacto ambiental.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asm-dev/green-track-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/asm-dev/green-track-api/issues"
+  },
+  "homepage": "https://github.com/asm-dev/green-track-api#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.15.1",
+    "pg": "^8.16.0",
+    "pg-hstore": "^2.3.4",
+    "redis": "^5.1.1",
+    "sequelize": "^6.37.7"
+  }
+}

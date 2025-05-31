@@ -1,7 +1,7 @@
 # GreenTrack API
 
 <p align="center">
-  <img src="./assets/logo_no_msg.png" width="200" alt="Emotion API Logo" />
+  <img src="./assets/logo_no_msg.png" width="200" alt="Green Track API Logo" />
 </p>
 
 GreenTrack es una API REST construida con **Node.js** que permite a usuarios reportar la presencia de basura en entornos naturales como bosques, playas o caminos rurales, y organizar eventos comunitarios para su limpieza. A través de esta plataforma, los usuarios pueden contribuir activamente a la preservación del medio ambiente, generando reportes geolocalizados y compartiendo imágenes del antes y después de cada limpieza.
