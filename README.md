@@ -38,14 +38,17 @@ green-track/
 1. Clona el repositorio e instala las dependencias
 2. Crea tu .env, recomiendo copiar el de ejemplo `cp .env.example .env`
 3. Crea las imágenes y levanta los contenedores de bases de datos y cache `docker compose up -d`
-4. Ejecuta la API con `npm run dev`
-5. (Opcional) Puedes probar la API en Postman facilimente si importas el archivo `docs/postman_collection.json` como colección.
+5. Ejecuta la API con `npm run dev`
+6. (*Opcional*) Puedes probar la API en Postman facilimente si importas el archivo `docs/postman_collection.json` como colección.
+
+![image](https://github.com/user-attachments/assets/dd8e3cd2-4f5b-4730-bf98-3d6489db52dd)
+
 
 ### Endpoints disponibles
 
 | Recurso     | Método | Endpoint               | Descripción                                                |
 | ----------- | ------ | ---------------------- | ---------------------------------------------------------- |
-| 📍 Informes | GET    | `/reports`             | Obtener todos los informes                                 |
+| Informes | GET    | `/reports`             | Obtener todos los informes                                 |
 |             | GET    | `/reports/active`      | Obtener informes activos (con cache Redis)                 |
 |             | POST   | `/reports`             | Crear un nuevo informe                                     |
 |             | PUT    | `/reports/:id`         | Actualizar el estado de un informe                         |
@@ -57,17 +60,17 @@ green-track/
 
 ## Reflexiones del desarrollo
 
-### ¿Por qué SQL para reportes y eventos?
+**¿Por qué SQL para reportes y eventos?**
 
-Los reportes y eventos tienen una estructura **estable, relacional y bien definida** (campos obligatorios como `status`, `location`, `date`), lo que se adapta perfectamente a una base de datos relacional como PostgreSQL. Además, permite integridad referencial y consultas complejas fácilmente.
+Los reportes y eventos tienen una estructura estable, relacional y bien definida (campos obligatorios como `status`, `location`, `date`), lo que se adapta perfectamente a una base de datos relacional como PostgreSQL. Además, permite integridad referencial y consultas complejas fácilmente.
 
-### ¿Por qué MongoDB para voluntarios y comentarios?
+**¿Por qué MongoDB para voluntarios y comentarios?**
 
-Los registros de voluntarios y comentarios son **más flexibles y no requieren relaciones estrictas**. MongoDB permite insertar documentos rápidamente, sin migraciones, y escalar bien en volumen alto.
+Los registros de voluntarios y comentarios son más flexibles y no requieren relaciones estrictas. MongoDB permite insertar documentos rápidamente, sin migraciones, y escalar bien en volumen alto.
 
-### ¿Por qué Redis?
+**¿Por qué Redis?**
 
-Redis se usa para **cachear los endpoints más consultados** (`/reports/active` y `/events/upcoming`), lo que:
+Redis se usa para cachear los endpoints más consultados (`/reports/active` y `/events/upcoming`), lo que:
 
 - Reduce el tiempo de respuesta considerablemente.
 - Disminuye la carga sobre PostgreSQL.
