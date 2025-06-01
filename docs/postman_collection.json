@@ -1,0 +1,147 @@
+{
+  "info": {
+    "name": "GreenTrack API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Reports",
+      "item": [
+        {
+          "name": "Get All Reports",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/reports",
+              "host": ["localhost:3000"],
+              "path": ["reports"]
+            }
+          }
+        },
+        {
+          "name": "Get Active Reports (Cached)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/reports/active",
+              "host": ["localhost:3000"],
+              "path": ["reports", "active"]
+            }
+          }
+        },
+        {
+          "name": "Create Report",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Basura en el parque\",\n  \"location\": \"Parque del Retiro\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/reports",
+              "host": ["localhost:3000"],
+              "path": ["reports"]
+            }
+          }
+        },
+        {
+          "name": "Update Report",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"resolved\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/reports/:id",
+              "host": ["localhost:3000"],
+              "path": ["reports", ":id"]
+            }
+          }
+        },
+        {
+          "name": "Delete Report",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/reports/:id",
+              "host": ["localhost:3000"],
+              "path": ["reports", ":id"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Events",
+      "item": [
+        {
+          "name": "Get Upcoming Events (Cached)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/events/upcoming",
+              "host": ["localhost:3000"],
+              "path": ["events", "upcoming"]
+            }
+          }
+        },
+        {
+          "name": "Create Event",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Limpieza Playa\",\n  \"description\": \"Voluntarios para la playa\",\n  \"location\": \"Playa Levante\",\n  \"date\": \"2025-12-01\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/events",
+              "host": ["localhost:3000"],
+              "path": ["events"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Volunteers",
+      "item": [
+        {
+          "name": "Get Volunteers by Event ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/volunteers/:eventId",
+              "host": ["localhost:3000"],
+              "path": ["volunteers", ":eventId"]
+            }
+          }
+        },
+        {
+          "name": "Sign Up Volunteer",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"eventId\": \"12345\",\n  \"name\": \"Ana\",\n  \"email\": \"ana@mail.com\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/volunteers",
+              "host": ["localhost:3000"],
+              "path": ["volunteers"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
